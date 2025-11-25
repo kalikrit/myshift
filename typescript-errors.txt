@@ -1,0 +1,58 @@
+
+> my-shift-frontend@0.0.0 type-check
+> vue-tsc --build
+
+src/components/WeekView.vue(126,22): error TS18048: 'start' is possibly 'undefined'.
+src/components/WeekView.vue(127,20): error TS18048: 'end' is possibly 'undefined'.
+src/components/WeekView.vue(129,7): error TS18048: 'start' is possibly 'undefined'.
+src/components/WeekView.vue(129,23): error TS18048: 'end' is possibly 'undefined'.
+src/components/WeekView.vue(130,15): error TS18048: 'start' is possibly 'undefined'.
+src/components/WeekView.vue(130,34): error TS18048: 'end' is possibly 'undefined'.
+src/components/WeekView.vue(132,15): error TS18048: 'start' is possibly 'undefined'.
+src/components/WeekView.vue(132,48): error TS18048: 'end' is possibly 'undefined'.
+src/components/WeekView.vue(208,21): error TS2532: Object is possibly 'undefined'.
+src/components/WeekView.vue(209,19): error TS2532: Object is possibly 'undefined'.
+src/utils/coverageUtils.ts(17,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/coverageUtils.ts(18,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(25,33): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(26,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(27,31): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(28,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(30,33): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(31,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(32,31): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(33,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/__tests__/DayView.spec.ts(29,36): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/__tests__/DayView.spec.ts(30,34): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/coverageUtils.ts(17,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/coverageUtils.ts(18,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(25,33): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(26,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(27,31): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(28,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(30,33): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(31,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(32,31): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/utils/timeUtils.ts(33,30): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.

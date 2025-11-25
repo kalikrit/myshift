@@ -1,0 +1,786 @@
+/* DayView.css - ФИКСИРОВАННАЯ ШИРИНА СМЕН И ПРАВИЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ */
+
+.day-view {
+  padding: 20px;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+.day-header {
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.day-header h2 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.day-info {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+}
+
+.day-info .coverage-status {
+  cursor: help;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background: rgba(46, 204, 113, 0.1);
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; 
+}
+
+.day-info .coverage-status.good {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--color-success);
+}
+
+.day-info .coverage-status.warning {
+  background: rgba(255, 193, 7, 0.1);
+  color: var(--color-warning);
+}
+
+.day-info .coverage-status.critical {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--color-danger);
+}
+
+/* Компактная панель правил */
+.coverage-rules-panel.compact {
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.coverage-rules-panel.compact:hover {
+  background: #e3f2fd;
+}
+
+.rules-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.toggle-icon {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.rules-content {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Уменьшаем отступы для компактности */
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.rule-category {
+  display: flex;
+  flex-direction: column;
+}
+
+.rule-header {
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3px;
+  font-size: 0.7rem;
+}
+
+.rule-header.cashier { background: var(--color-cashier); }
+.rule-header.manager { background: var(--color-manager); }
+.rule-header.technician { background: var(--color-technician); }
+
+.rule-intervals {
+  font-size: 0.65rem;
+  line-height: 1.2;
+}
+
+.rule-intervals div {
+  padding: 1px 0;
+}
+
+/* Таймлайн контейнер - ЗАНИМАЕТ ВСЁ ОСТАВШЕЕСЯ ПРОСТРАНСТВО */
+.timeline-container {
+  display: flex;
+  flex: 1;
+  min-height: 0; 
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: visible !important;
+  background: white;
+}
+
+.time-labels {
+  width: 80px;
+  background: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  flex-shrink: 0;
+  position: relative;
+  min-height: 840px;
+  overflow: visible !important;
+}
+
+.time-label {
+  position: absolute;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #666;
+  width: 100%;
+}
+
+/* Таймлайн с вертикальным скроллом */
+.timeline {
+  flex: 1;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: visible !important; 
+  height: auto !important;
+  min-height: 840px;
+}
+
+.hour-slot {
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: crosshair;
+  pointer-events: auto;
+}
+
+.hour-slot:hover {
+  background: #f8f9fa;
+}
+
+/* СМЕНЫ С ФИКСИРОВАННОЙ ШИРИНОЙ */
+.shift-block {
+  position: absolute;
+  background: var(--color-cashier);
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: white;
+  font-size: 0.65rem;
+  cursor: move;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  width: var(--shift-width);
+  min-width: var(--shift-width);
+  max-width: var(--shift-width);
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+.shift-block:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.shift-block.cashier { background: var(--color-cashier); }
+.shift-block.manager { background: var(--color-manager); }
+.shift-block.technician { background: var(--color-technician); }
+
+.shift-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.shift-employee {
+  font-weight: bold;
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+.shift-time {
+  font-size: 0.55rem;
+  opacity: 0.9;
+  line-height: 1;
+}
+
+/* ОБЛАСТЬ ВЫДЕЛЕНИЯ ДЛЯ СОЗДАНИЯ СМЕН */
+.selection-area {
+  position: absolute;
+  left: 60px;
+  background: rgba(52, 152, 219, 0.2);
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 4;
+  width: calc(100% - 64px);
+}
+
+.selection-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(52, 152, 219, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ПОДСКАЗКИ ВРЕМЕНИ ПРИ ВЫДЕЛЕНИИ */
+.selection-time-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  z-index: 5;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.selection-time-tooltip.start {
+  top: 5px;
+  left: 5px;
+}
+
+.selection-time-tooltip.end {
+  bottom: 5px;
+  right: 5px;
+}
+
+/* ОТОБРАЖЕНИЕ ВРЕМЕНИ В ЦЕНТРЕ ОБЛАСТИ ВЫДЕЛЕНИЯ */
+.selection-time-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 6;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.selection-time-range {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.selection-duration {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  font-weight: normal;
+}
+
+/* ВИЗУАЛЬНЫЕ ЛИНИИ-НАПРАВЛЯЮЩИЕ ПРИ ВЫДЕЛЕНИИ */
+.timeline.selection-active .hour-slot {
+  border-left: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary);
+}
+
+.timeline.selection-active .hour-slot:nth-child(even) {
+  background: rgba(0, 123, 255, 0.03);
+}
+
+/* ПОДСВЕТКА ЧАСОВ ПРИ НАВЕДЕНИИ ВО ВРЕМЯ ВЫДЕЛЕНИИ */
+.hour-slot.selection-hover {
+  background: rgba(52, 152, 219, 0.1) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* ИНДИКАТОР ТЕКУЩЕГО ЧАСА ПРИ ВЫДЕЛЕНИИ */
+.hour-slot.current-selection-hour::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* УВЕДОМЛЕНИЯ */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: white;
+  z-index: 1001;
+  animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+  background: var(--color-success);
+}
+
+.notification.error {
+  background: var(--color-danger);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* КОНТЕКСТНОЕ МЕНЮ */
+.context-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1002;
+  min-width: 150px;
+}
+
+.context-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.8rem;
+}
+
+.context-item:hover {
+  background: #f5f5f5;
+}
+
+.context-item:last-child {
+  border-bottom: none;
+}
+
+/* МОДАЛЬНЫЕ ОКНА */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  min-width: 400px;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.modal-time {
+  background: #e3f2fd;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+  margin-top: var(--spacing-lg);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+  .day-view {
+    padding: 10px;
+    height: calc(100vh - 100px);
+  }
+  
+  .timeline-container {
+    flex-direction: column;
+  }
+  
+  .time-labels {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .time-label {
+    position: static;
+    min-width: 60px;
+    height: 40px;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .modal-content {
+    min-width: 90vw;
+    margin: 20px;
+  }
+  
+  .shift-block {
+    width: var(--shift-width-mobile) !important;
+    min-width: var(--shift-width-mobile);
+    max-width: var(--shift-width-mobile);
+  }
+
+  .rules-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* АНИМАЦИИ */
+.hour-slot {
+  transition: background-color 0.2s ease;
+}
+
+.shift-block {
+  transition: all 0.2s ease;
+}
+
+/* СОСТОЯНИЯ ПЕРЕТАСКИВАНИЯ */
+.hour-slot.drag-over {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.shift-block.dragging {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ВИЗУАЛЬНЫЕ ПОЛОСКИ ДЛЯ ВРЕМЕНИ */
+.hour-slot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.hour-slot::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+}
+
+/* ЧЕРЕДОВАНИЕ ФОНА ЧАСОВ */
+.hour-slot:nth-child(odd) {
+  background: #fafafa;
+}
+
+.hour-slot:nth-child(odd):hover {
+  background: #f0f0f0;
+}
+
+/* СТИЛИ ДЛЯ СКРОЛЛБАРА */
+.timeline::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.timeline::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* ЗАГРУЗКА И ПУСТЫЕ СОСТОЯНИЯ */
+.timeline:empty::before {
+  content: 'Перетащите для создания смены';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ВАЛИДАЦИЯ */
+.form-group select:invalid,
+.form-group input:invalid {
+  border-color: var(--color-danger);
+}
+
+.form-group select:valid,
+.form-group input:valid {
+  border-color: var(--color-success);
+}
+
+/* ФОКУС */
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* ДИЗАБЛЕД СОСТОЯНИЯ */
+.btn-primary:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.btn-secondary:disabled {
+  background: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* ДОПОЛНИТЕЛЬНЫЕ УЛУЧШЕНИЯ */
+.shift-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px 3px 0 0;
+}
+
+.shift-block.cashier::before { background: rgba(255, 255, 255, 0.6); }
+.shift-block.manager::before { background: rgba(255, 255, 255, 0.7); }
+.shift-block.technician::before { background: rgba(255, 255, 255, 0.6); }
+
+/* СТИЛИ ПЕРЕТАСКИВАНИЯ СМЕН */
+.shift-block.dragging {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  cursor: grabbing;
+}
+
+.shift-block.drag-preview {
+  opacity: 0.6;
+}
+
+.shift-block {
+  cursor: grab;
+  user-select: none;
+}
+
+.shift-block:active {
+  cursor: grabbing;
+}
+
+/* ИНДИКАТОР ПЕРЕТАСКИВАНИЯ */
+.drag-indicator {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.5rem;
+  opacity: 0.8;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+/* ВИЗУАЛЬНЫЕ ЛИНИИ-ПОДСКАЗКИ ПРИ ПЕРЕТАСКИВАНИИ */
+.timeline.drag-active .hour-slot {
+  border-color: var(--color-primary);
+}
+
+.timeline.drag-active .hour-slot:nth-child(even) {
+  background: rgba(0, 123, 255, 0.05);
+}
+
+/* ПРЕДПРОСМОТР ПОЗИЦИИ */
+.shift-preview {
+  position: absolute;
+  background: rgba(52, 152, 219, 0.3);
+  border: 2px dashed var(--color-primary);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* АНИМАЦИЯ ПЕРЕМЕЩЕНИЯ */
+.shift-block {
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.shift-block.dragging {
+  transition: transform 0.05s ease, opacity 0.1s ease;
+}
+
+.error-message {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+  padding: 8px;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 4px;
+}
+
+.form-group input.error {
+  border-color: var(--color-danger);
+}
+
+.info-message {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+  border-left: 3px solid #2196f3;
+}
+/* Стили для статуса покрытия ТОЛЬКО в DayView */
+.day-header .day-info .coverage-status {
+  position: static !important;
+  display: inline-block !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: auto !important;
+  height: auto !important;
+  cursor: help;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background: rgba(46, 204, 113, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  transform: none !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+.day-header .day-info .coverage-status.good {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--color-success);
+}
+
+.day-header .day-info .coverage-status.critical {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--color-danger);
+}

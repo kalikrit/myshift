@@ -1,0 +1,25 @@
+/* src/assets/styles/variables.css */
+:root {
+  /* Цвета ролей */
+  --color-cashier: #3498db;
+  --color-manager: #e74c3c;
+  --color-technician: #2ecc71;
+  
+  /* Основные цвета */
+  --color-primary: #007bff;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  
+  /* Отступы */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Размеры */
+  --shift-width: 50px;
+  --shift-width-mobile: 40px;
+  --hour-height: 60px;
+}

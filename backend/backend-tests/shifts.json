@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "date": "2025-11-20",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "кассир1",
+    "role": "cashier"
+  },
+  {
+    "id": 2,
+    "date": "2025-11-20",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "кассир1",
+    "role": "cashier"
+  },
+  {
+    "id": 3,
+    "date": "2025-11-21",
+    "start_time": "10:00",
+    "end_time": "18:00",
+    "employee": "менеджер1",
+    "role": "manager"
+  },
+  {
+    "id": 4,
+    "date": "2025-11-22",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник1",
+    "role": "technician"
+  },
+  {
+    "id": 5,
+    "date": "2025-11-20",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "кассир1",
+    "role": "cashier"
+  },
+  {
+    "id": 6,
+    "date": "2025-11-21",
+    "start_time": "10:00",
+    "end_time": "18:00",
+    "employee": "менеджер1",
+    "role": "manager"
+  },
+  {
+    "id": 7,
+    "date": "2025-11-22",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник1",
+    "role": "technician"
+  }
+]
