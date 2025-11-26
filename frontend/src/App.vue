@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { onMounted, computed, watch } from 'vue'
 import { useAuthStore } from './stores/auth'
 import { useCalendarStore } from './stores/calendar'
 import { useScheduleStore } from './stores/schedule'
@@ -62,6 +62,14 @@ const currentPeriodDisplay = computed(() => {
   return calendarStore.currentPeriodDisplay
 })
 
+// Наблюдаем за изменением статуса авторизации
+watch(() => authStore.isAuthenticated, async (isAuthenticated) => {
+  if (isAuthenticated && isBackendOnline.value) {
+    // Загружаем правила покрытия только после авторизации
+    await scheduleStore.loadCoverageRules()
+  }
+})
+
 onMounted(async () => {  
   // Сразу проверяем доступность бэкенда
   const isHealthy = await checkBackendHealth()
@@ -70,8 +78,9 @@ onMounted(async () => {
   if (isHealthy && !healthMonitoringStarted) {
     startHealthMonitoring()
     healthMonitoringStarted = true
-
-    await scheduleStore.loadCoverageRules()
+    
+    // Инициализируем авторизацию (если есть токен)
+    await authStore.initialize()
   }
 })
 
@@ -82,7 +91,6 @@ const handleRetry = async () => {
   if (isHealthy && !healthMonitoringStarted) {
     startHealthMonitoring()
     healthMonitoringStarted = true
-    await scheduleStore.loadCoverageRules()
   }
 }
 </script>

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { api } from '@/services/api'
+import { useScheduleStore } from './schedule' // ← ДОБАВИТЬ ИМПОРТ
 
 interface User {
   id: number
@@ -41,6 +42,10 @@ export const useAuthStore = defineStore('auth', () => {
       setToken(newToken)
       user.value = userData
       
+      // ← ДОБАВИТЬ: Загружаем coverageRules после успешного логина
+      const scheduleStore = useScheduleStore()
+      await scheduleStore.loadCoverageRules()
+      
       return { success: true }
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Login failed'
@@ -67,6 +72,11 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const response = await api.getCurrentUser()
       user.value = response.user
+      
+      // ← ДОБАВИТЬ: Загружаем coverageRules после получения пользователя
+      const scheduleStore = useScheduleStore()
+      await scheduleStore.loadCoverageRules()
+      
     } catch (error) {
       clearToken()
       throw error
