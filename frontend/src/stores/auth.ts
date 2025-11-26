@@ -72,6 +72,11 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const response = await api.getCurrentUser()
       user.value = response.user
+      
+      // Загружаем coverageRules после получения пользователя
+      const scheduleStore = useScheduleStore()
+      await scheduleStore.loadCoverageRules()
+      
     } catch (error) {
       clearToken()
       throw error
