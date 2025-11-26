@@ -4,14 +4,14 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/myshift/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  test: {
-    globals: true,
-    environment: 'jsdom', // Важно: добавляем jsdom окружение
-    setupFiles: './src/test-setup.ts'
+  build: {
+    outDir: 'dist',
+    sourcemap: false
   }
 })

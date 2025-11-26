@@ -2,7 +2,9 @@
 import type { Shift } from '../types';
 import { isBackendOnline } from '@/utils/healthCheck';
 
-const API_BASE_URL = 'https://kalikrit.pythonanywhere.com';
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://kalikrit.pythonanywhere.com'
+  : 'https://kalikrit.pythonanywhere.com';
 
 interface LoginRequest {
   username: string;
