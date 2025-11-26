@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { api } from '@/services/api'
+import { useRouter } from 'vue-router'
 
 interface User {
   id: number
@@ -55,9 +56,10 @@ export const useAuthStore = defineStore('auth', () => {
 
   // Логаут
   const logout = () => {
+    const router = useRouter() 
     user.value = null
     clearToken()
-    window.location.href = '/login'
+    router.push('/login')
   }
 
   // Получение текущего пользователя
