@@ -1477,19 +1477,10 @@
     "required": true
   },
   {
-    "id": 202512010002,
-    "date": "2025-12-01",
-    "start_time": "08:00",
-    "end_time": "16:00",
-    "employee": "менеджер зала 3",
-    "role": "manager",
-    "required": true
-  },
-  {
     "id": 202512010003,
     "date": "2025-12-01",
-    "start_time": "12:00",
-    "end_time": "20:00",
+    "start_time": "09:00",
+    "end_time": "17:00",
     "employee": "менеджер зала 1",
     "role": "manager",
     "required": true
@@ -1497,8 +1488,8 @@
   {
     "id": 202512010004,
     "date": "2025-12-01",
-    "start_time": "09:00",
-    "end_time": "17:00",
+    "start_time": "10:00",
+    "end_time": "15:00",
     "employee": "техник2",
     "role": "technician",
     "required": true
@@ -1756,8 +1747,134 @@
     "required": true
   },
   {
-    "id": 202512020003,
+    "id": 202512020004,
     "date": "2025-12-02",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник1",
+    "role": "technician",
+    "required": true
+  },
+  {
+    "id": 202512030000,
+    "date": "2025-12-03",
+    "start_time": "07:00",
+    "end_time": "15:00",
+    "employee": "кассир3",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512030001,
+    "date": "2025-12-03",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "кассир4",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512030002,
+    "date": "2025-12-03",
+    "start_time": "08:00",
+    "end_time": "16:00",
+    "employee": "менеджер зала 2",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512030003,
+    "date": "2025-12-03",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "менеджер зала 3",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512030004,
+    "date": "2025-12-03",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник2",
+    "role": "technician",
+    "required": true
+  },
+  {
+    "id": 202512040000,
+    "date": "2025-12-04",
+    "start_time": "07:00",
+    "end_time": "15:00",
+    "employee": "кассир4",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512040001,
+    "date": "2025-12-04",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "кассир5",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512040002,
+    "date": "2025-12-04",
+    "start_time": "08:00",
+    "end_time": "16:00",
+    "employee": "менеджер зала 3",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512040003,
+    "date": "2025-12-04",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "менеджер зала 1",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512040004,
+    "date": "2025-12-04",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник1",
+    "role": "technician",
+    "required": true
+  },
+  {
+    "id": 202512050000,
+    "date": "2025-12-05",
+    "start_time": "07:00",
+    "end_time": "15:00",
+    "employee": "кассир5",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512050001,
+    "date": "2025-12-05",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "кассир1",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512050002,
+    "date": "2025-12-05",
+    "start_time": "08:00",
+    "end_time": "16:00",
+    "employee": "менеджер зала 1",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512050003,
+    "date": "2025-12-05",
     "start_time": "12:00",
     "end_time": "20:00",
     "employee": "менеджер зала 2",
@@ -1765,11 +1882,101 @@
     "required": true
   },
   {
-    "id": 202512020004,
-    "date": "2025-12-02",
+    "id": 202512050004,
+    "date": "2025-12-05",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник2",
+    "role": "technician",
+    "required": true
+  },
+  {
+    "id": 202512060000,
+    "date": "2025-12-06",
+    "start_time": "07:00",
+    "end_time": "15:00",
+    "employee": "кассир1",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512060001,
+    "date": "2025-12-06",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "кассир2",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512060002,
+    "date": "2025-12-06",
+    "start_time": "08:00",
+    "end_time": "16:00",
+    "employee": "менеджер зала 2",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512060003,
+    "date": "2025-12-06",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "менеджер зала 3",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512060004,
+    "date": "2025-12-06",
     "start_time": "09:00",
     "end_time": "17:00",
     "employee": "техник1",
+    "role": "technician",
+    "required": true
+  },
+  {
+    "id": 202512070000,
+    "date": "2025-12-07",
+    "start_time": "07:00",
+    "end_time": "15:00",
+    "employee": "кассир2",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512070001,
+    "date": "2025-12-07",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "кассир3",
+    "role": "cashier",
+    "required": true
+  },
+  {
+    "id": 202512070002,
+    "date": "2025-12-07",
+    "start_time": "08:00",
+    "end_time": "16:00",
+    "employee": "менеджер зала 3",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512070003,
+    "date": "2025-12-07",
+    "start_time": "12:00",
+    "end_time": "20:00",
+    "employee": "менеджер зала 1",
+    "role": "manager",
+    "required": true
+  },
+  {
+    "id": 202512070004,
+    "date": "2025-12-07",
+    "start_time": "09:00",
+    "end_time": "17:00",
+    "employee": "техник2",
     "role": "technician",
     "required": true
   }

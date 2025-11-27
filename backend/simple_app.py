@@ -5,10 +5,17 @@ from auth import login_required, role_required, generate_token, verify_password,
 
 app = Flask(__name__)
 
-# Ручная настройка CORS
 @app.after_request
 def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:5173')
+    allowed_origins = [
+        'http://localhost:5173',
+        'https://kalikrit.github.io'
+    ]
+
+    origin = request.headers.get('Origin')
+    if origin in allowed_origins:
+        response.headers.add('Access-Control-Allow-Origin', origin)
+
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     response.headers.add('Access-Control-Allow-Credentials', 'true')

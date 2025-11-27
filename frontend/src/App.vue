@@ -23,9 +23,9 @@
         </div>
 
         <div class="date-navigation">
-          <button @click="calendarStore.prevPeriod" class="nav-btn">◀</button>
+          <button @click="calendarStore.prevPeriod" class="nav-btn prev-btn"></button>
           <span class="current-period">{{ currentPeriodDisplay }}</span>
-          <button @click="calendarStore.nextPeriod" class="nav-btn">▶</button>
+          <button @click="calendarStore.nextPeriod" class="nav-btn next-btn"></button>
           <button @click="calendarStore.goToToday" class="today-btn">Сегодня</button>
         </div>
 
@@ -96,6 +96,18 @@ const handleRetry = async () => {
 </script>
 
 <style scoped>
+.nav-btn.prev-btn::before {
+  content: "◀";
+}
+
+.nav-btn.next-btn::before {
+  content: "▶";
+}
+
+.nav-btn {
+  font-family: Arial, sans-serif; /* Убедитесь что шрифт поддерживает символы */
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
